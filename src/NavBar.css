@@ -1,0 +1,21 @@
+.NavBar {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #eee;
+  display: flex;
+  justify-content: space-around;
+}
+
+.NavBar a {
+  text-decoration: none;
+  color: rgb(36, 105, 255);
+}
+
+.NavBar-left {
+  justify-self: flex-start;
+}
+
+.NavBar .active {
+  font-weight: 900;
+  color: #222;
+}
