@@ -38,7 +38,7 @@ function Routes() {
         <Profile /> 
       </Route>
       
-      <Redirect exact path='/' />
+      <Redirect exact to='/' />
     </Switch>
   )
 }

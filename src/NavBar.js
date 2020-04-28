@@ -11,10 +11,9 @@ function NavBar() {
 
   return (
     <nav className='NavBar'>
-      <Link exact to='/' className='NavBar-left'>Jobly</Link>
+      <Link to='/' className='NavBar-left'>Jobly</Link>
 
       <NavLink exact to='/companies'>Companies</NavLink>
-      <NavLink exact to='/companies/apple'>Apple</NavLink>
       <NavLink exact to='/jobs'>Jobs</NavLink>
       <NavLink exact to='/login'>Login</NavLink>
       <NavLink exact to='/profile'>Profile</NavLink>
