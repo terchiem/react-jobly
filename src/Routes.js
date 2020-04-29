@@ -12,8 +12,8 @@ import Profile from './Profile';
 
 /** All routes for the Jobly app */
 
-function Routes() {
-  const { token } = useContext(UserContext); // TEMP: switch to context user when implemented
+function Routes({ setToken, removeToken }) {
+  const { token } = useContext(UserContext); 
 
   return (
     <Switch>
@@ -22,7 +22,7 @@ function Routes() {
       </Route>
 
       <Route exact path='/login'> 
-        <Auth /> 
+        <Auth setToken={setToken} removeToken={removeToken} /> 
       </Route>
 
       {/* Protected routes */}

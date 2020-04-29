@@ -7,7 +7,7 @@ import SignUpForm from './SignUpForm';
 
 /** Displays a form to log in or sign up */
 
-function Auth() {
+function Auth({ setToken }) {
 
   const [showLoginForm, toggleLoginForm] = useState(true);
 
@@ -28,7 +28,11 @@ function Auth() {
         </button>
       </div>
 
-      { showLoginForm ? <LoginForm /> : <SignUpForm /> }
+      { 
+        showLoginForm ? 
+        <LoginForm setToken={setToken} /> : 
+        <SignUpForm setToken={setToken} /> 
+      }
     </div>
   );
 }

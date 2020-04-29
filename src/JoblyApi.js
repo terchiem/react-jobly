@@ -55,6 +55,12 @@ class JoblyApi {
     const res = await this.request(`users`, optionalFormData, 'post');
     return res.token;
   }
+
+  /** Get user data and return it */
+  static async getUser(username) {
+    const res = await this.request(`users/${username}`);
+    return res.user;
+  }
 }
 
 export default JoblyApi;

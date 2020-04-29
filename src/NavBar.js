@@ -9,22 +9,16 @@ import './NavBar.css';
  * Changes depending if user is logged in. 
  * */
 
-function NavBar() {
+function NavBar({ logOut }) {
 
-  const { token, setToken } = useContext(UserContext);  // TEMP: switch to context user when implemented
-  
-  /** Log out current user */
-  function logout() {
-    setToken(null);
-    window.localStorage.removeItem(TOKEN_STORAGE_KEY);
-  }
+  const { token } = useContext(UserContext);
 
   const navLinks = token ? (
     <ul>
       <li><NavLink exact to='/companies'>Companies</NavLink></li>
       <li><NavLink exact to='/jobs'>Jobs</NavLink></li>
       <li><NavLink exact to='/profile'>Profile</NavLink></li>
-      <li><Link to="/" onClick={logout}>Log Out</Link></li>
+      <li><Link to="/" onClick={logOut}>Log Out</Link></li>
     </ul>
   ) : (
     <ul>

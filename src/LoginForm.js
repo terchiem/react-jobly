@@ -1,15 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { TOKEN_STORAGE_KEY } from './config';
 import JoblyApi from './JoblyApi';
-import UserContext from './UserContext';
 import './Form.css';
 
 /** Form component for a user to sign in. */
 
-function LoginForm() {
+function LoginForm({ setToken }) {
   const history = useHistory();
-  const { setToken } = useContext(UserContext);
 
   const [formData, setFormData] = useState({
     username: "",
@@ -29,7 +26,6 @@ function LoginForm() {
     
     try {
       const token = await JoblyApi.logIn(formData);
-      window.localStorage.setItem(TOKEN_STORAGE_KEY, token);
       setToken(token);
       history.push("/jobs");  // redirect to '/jobs'
     } catch (errors) {
