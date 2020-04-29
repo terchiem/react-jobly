@@ -9,26 +9,26 @@ import SignUpForm from './SignUpForm';
 
 function Auth() {
 
-  const [loginForm, toggleLoginForm] = useState(true);
+  const [showLoginForm, toggleLoginForm] = useState(true);
 
   return (
     <div className="Auth">
       <div className="Auth-toggle">
         <button 
-          className={loginForm ? "Auth-active" : ""} 
+          className={showLoginForm ? "Auth-active" : ""} 
           onClick={() => toggleLoginForm(true)}
         >
           Login
         </button>
         <button 
-          className={loginForm ? "" : "Auth-active"} 
+          className={showLoginForm ? "" : "Auth-active"} 
           onClick={() => toggleLoginForm(false)}
         >
           Sign up
         </button>
       </div>
 
-      { loginForm ? <LoginForm /> : <SignUpForm /> }
+      { showLoginForm ? <LoginForm /> : <SignUpForm /> }
     </div>
   );
 }

@@ -15,34 +15,7 @@ import Profile from './Profile';
 function Routes() {
   const { token } = useContext(UserContext); // TEMP: switch to context user when implemented
 
-  const loggedInRoutes = (
-    <Switch>
-      <Route exact path='/'>
-        <Home />
-      </Route>
-
-      <Route exact path='/companies'>
-        <CompanyList />
-      </Route>
-      
-      <Route exact path='/companies/:handle'> 
-        <CompanyPage />
-      </Route>
-      
-      <Route exact path='/jobs'> 
-        <JobList /> 
-      </Route>
-      
-      <Route exact path='/profile'> 
-        <Profile /> 
-      </Route>
-
-      { /** Page not found */ }
-      <Redirect exact to='/' />
-    </Switch>
-  );
-
-  const loggedOutRoutes = (
+  return (
     <Switch>
       <Route exact path='/'>
         <Home />
@@ -51,13 +24,32 @@ function Routes() {
       <Route exact path='/login'> 
         <Auth /> 
       </Route>
+
+      {/* Protected routes */}
+      { token ? (
+        <>
+          <Route exact path='/companies'>
+            <CompanyList />
+          </Route>
+          
+          <Route exact path='/companies/:handle'> 
+            <CompanyPage />
+          </Route>
+          
+          <Route exact path='/jobs'> 
+            <JobList /> 
+          </Route>
+          
+          <Route exact path='/profile'> 
+            <Profile /> 
+          </Route>
+        </>
+      ) : null}
       
       { /** Page not found */ }
       <Redirect exact to='/' />
     </Switch>
-  )
-
-  return (token ? loggedInRoutes : loggedOutRoutes);
+  );
 }
 
 export default Routes;

@@ -17,8 +17,8 @@ function App() {
   // TODO: store current user data in state
   // TODO: update current user when token is changed
 
-
-  /** Set token state from localStorage on mount */
+  
+  // Use token from previous session if present in localStorage
   useEffect(() => {
     const storedToken = window.localStorage.getItem(TOKEN_STORAGE_KEY);
     setToken(storedToken);
