@@ -8,11 +8,9 @@ function CompanyCard({ name, handle, description, logoUrl }) {
   return (
     <Link to={`/companies/${handle}`} className="CompanyCard-link">
       <div className="CompanyCard">
-        <div>
-          <h3>{name}</h3>
-          <p>{description}</p>
-          <img src={logoUrl || defaultLogo} alt={`${name} Logo`}/>
-        </div>
+        <h3>{name}</h3>
+        <p>{description}</p>
+        <img src={logoUrl || defaultLogo} alt={`${name} Logo`}/>
       </div>
     </Link>
   )

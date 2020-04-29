@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import JoblyApi from './JoblyApi';
 import './CompanyList.css';
 
+// components
 import CompanyCard from './CompanyCard';
 import SearchBar from './SearchBar';
-import JoblyApi from './JoblyApi';
 
 /** 
- * Displays a list of CompanyCard components from the companies
- * array kept in state.
+ * Displays a list of all available companies. A user can filter specific
+ * companies with the SearchBar component.
  */
 
 function CompanyList() {
@@ -23,6 +24,8 @@ function CompanyList() {
     loadCompanies();
   }, []);
 
+  // TODO: loading display
+    // chrome - simulate loading speeds
 
   /** Search for companies through the api. Sets results to state company array */
   async function searchCompany(term) {

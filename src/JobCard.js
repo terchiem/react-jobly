@@ -7,7 +7,7 @@ function JobCard({ id, title, salary, equity, applied }) {
 
   /** Create an application for a user and a job */
   function applyForJob() {
-    // TODO
+    // TODO: use job id and current user name to make application
   }
 
   return (

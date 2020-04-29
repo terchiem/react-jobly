@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import JoblyApi from './JoblyApi';
 import './CompanyPage.css';
 
+// components
 import JobCard from './JobCard';
 
 /** Displays details about a company and all of its jobs */
@@ -19,7 +20,7 @@ function CompanyPage() {
       setCurrentCompany(fetchedCompany);
     }
     fetchCompany();
-  }, []);
+  }, [handle]);
 
 
   /** Creates a JobCard component for each company job */
@@ -36,13 +37,15 @@ function CompanyPage() {
     ))
   }
 
-  const companyPage = currentCompany ? (
+  const companyPage = currentCompany ? 
     <div className="CompanyPage">
       <h2>{currentCompany.name}</h2>
       <p>{currentCompany.description}</p>
       { renderCompanyJobs() }
+    </div> :
+    <div className="CompanyPage">
+      <p>Loading...</p>
     </div>
-  ) : <p>Loading...</p>
 
   return companyPage;
 }

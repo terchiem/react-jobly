@@ -1,13 +1,13 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
+// components
 import Home from './Home';
 import CompanyList from './CompanyList';
 import CompanyPage from './CompanyPage';
 import JobList from './JobList';
 import Auth from './Auth';
 import Profile from './Profile';
-
 
 /** All routes for the Jobly app */
 
@@ -38,6 +38,7 @@ function Routes() {
         <Profile /> 
       </Route>
       
+      { /** Page not found */ }
       <Redirect exact to='/' />
     </Switch>
   )

@@ -13,6 +13,7 @@ function SearchBar({ search }) {
     setSearchTerm('');
   }
 
+  // TODO: debounce the search
   function handleChange(evt) {
     setSearchTerm(evt.target.value);
   }
