@@ -1,7 +1,7 @@
 .NavBar {
   display: flex;
-  justify-content: space-around;
-  padding: 20px;
+  align-items: center;
+  padding: 0 20px;
   margin-bottom: 20px;
   background-color: #fff;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -19,4 +19,15 @@
 .NavBar .active {
   font-weight: 900;
   color: #222;
+}
+
+.NavBar ul {
+  margin-left: auto;
+  padding: 0;
+}
+
+.NavBar li {
+  display: inline-block;
+  margin-left: 20px;
+  list-style: none;
 }

@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import JoblyApi from './JoblyApi';
+import UserContext from './UserContext';
+import { TOKEN_STORAGE_KEY } from './config';
 import './Form.css';
 
 /** Form component for a user to sign in. */
 
-function SignUpForm({ signUp }) {
+function SignUpForm() {
+  const history = useHistory();
+  const { setToken } = useContext(UserContext);
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",
     first_name: "",
     last_name: "",
-    email: ""
+    email: "",
+    errors: []
   });
 
   /** Updates state on input change */
@@ -19,10 +27,29 @@ function SignUpForm({ signUp }) {
   }
 
   /** Creates a new user and stores the token in localStorage */
-  function signUp() {
-    // TODO: api call to create user
-      // store token in localStorage
-      // redirect to jobs page
+  async function signUp(evt) {
+    evt.preventDefault();
+    
+    try {
+      const token = await JoblyApi.signUp(formData);
+      window.localStorage.setItem(TOKEN_STORAGE_KEY, token);
+      setToken(token);
+      history.push("/jobs");  // redirect to '/jobs'
+    } catch (errors) {
+      // fill formData errors array to display
+      setFormData(data => ({...data, errors}));
+    }
+  }
+
+  /** Renders form errors if present */
+  function renderErrors() {
+    return (formData.errors.length ?
+      <ul className="Form-errors">
+        {formData.errors.map((message, i) => (
+          <li key={i}>{message}</li>
+        ))}
+      </ul> : null
+    )
   }
 
   return (
@@ -80,6 +107,8 @@ function SignUpForm({ signUp }) {
         />
       </div>
       <button className="Form-submit">Submit</button>
+
+      { renderErrors() }
     </form>
   )
 }

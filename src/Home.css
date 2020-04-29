@@ -1,0 +1,17 @@
+.Home {
+  text-align: center;
+  margin: 80px auto;
+}
+
+.Home p {
+  font-size: 3em;
+}
+
+.Home-login {
+  display: block;
+  width: 80px;
+  padding: 10px;
+  margin: 10px auto;
+  background-color: #2469ff;
+  color: #fff;
+}

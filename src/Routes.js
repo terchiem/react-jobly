@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import UserContext from './UserContext';
 
 // components
 import Home from './Home';
@@ -12,7 +13,9 @@ import Profile from './Profile';
 /** All routes for the Jobly app */
 
 function Routes() {
-  return (
+  const { token } = useContext(UserContext); // TEMP: switch to context user when implemented
+
+  const loggedInRoutes = (
     <Switch>
       <Route exact path='/'>
         <Home />
@@ -30,18 +33,31 @@ function Routes() {
         <JobList /> 
       </Route>
       
-      <Route exact path='/login'> 
-        <Auth /> 
-      </Route>
-      
       <Route exact path='/profile'> 
         <Profile /> 
+      </Route>
+
+      { /** Page not found */ }
+      <Redirect exact to='/' />
+    </Switch>
+  );
+
+  const loggedOutRoutes = (
+    <Switch>
+      <Route exact path='/'>
+        <Home />
+      </Route>
+
+      <Route exact path='/login'> 
+        <Auth /> 
       </Route>
       
       { /** Page not found */ }
       <Redirect exact to='/' />
     </Switch>
   )
+
+  return (token ? loggedInRoutes : loggedOutRoutes);
 }
 
 export default Routes;

@@ -11,13 +11,21 @@ function Auth() {
 
   const [loginForm, toggleLoginForm] = useState(true);
 
-  // TODO: conditional styling for current active form
-
   return (
     <div className="Auth">
       <div className="Auth-toggle">
-        <button onClick={() => toggleLoginForm(true)}>Login</button>
-        <button onClick={() => toggleLoginForm(false)}>Sign up</button>
+        <button 
+          className={loginForm ? "Auth-active" : ""} 
+          onClick={() => toggleLoginForm(true)}
+        >
+          Login
+        </button>
+        <button 
+          className={loginForm ? "" : "Auth-active"} 
+          onClick={() => toggleLoginForm(false)}
+        >
+          Sign up
+        </button>
       </div>
 
       { loginForm ? <LoginForm /> : <SignUpForm /> }
