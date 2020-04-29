@@ -1,19 +1,29 @@
-.CompanyCard {
+.Card {
   position: relative;
   margin: 10px auto;
-  padding: 10px 20px;
+  padding: 16px 24px;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.2);
   background-color: #fff;
-  text-decoration: none;
-}
-
-.CompanyCard-link {
-  text-decoration: none;
   color: #111;
+  text-decoration: none;
 }
 
-.CompanyCard-link:hover {
+/* JobCard */
+.JobCard-apply {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
+  padding: 10px;
+}
+
+.JobCard-apply:hover {
+  cursor: pointer;
+}
+
+/* CompanyCard */
+.CompanyCard-link:hover .CompanyCard {
   color: #2469ff;
 }
 

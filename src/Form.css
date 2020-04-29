@@ -1,0 +1,22 @@
+.Form {
+}
+
+.Form-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.Form-input {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 1em;
+}
+
+.Form-submit {
+  padding: 10px;
+  font-size: 0.8em;
+}
+
+.Form-group {
+  margin: 16px 0;
+}

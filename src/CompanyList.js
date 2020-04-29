@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import JoblyApi from './JoblyApi';
-import './CompanyList.css';
+import './List.css';
 
 // components
 import CompanyCard from './CompanyCard';
@@ -25,7 +25,7 @@ function CompanyList() {
   }, []);
 
   // TODO: loading display
-    // chrome - simulate loading speeds
+    // chrome - simulate load time
 
   /** Search for companies through the api. Sets results to state company array */
   async function searchCompany(term) {
@@ -47,7 +47,7 @@ function CompanyList() {
   }
 
   return (
-    <div className="CompanyList">
+    <div className="List">
       <SearchBar search={searchCompany} />
       { companies.length ? renderCompanies() : <p>Sorry, no results were found!</p> }
     </div>

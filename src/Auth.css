@@ -1,0 +1,21 @@
+.Auth {
+  width: 40vw;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.Auth-toggle {
+  position: absolute;
+  top: -36px;
+  right: 0;
+  margin: 4px;
+}
+
+.Auth-toggle button {
+  padding: 6px 10px;
+  font-size: 0.8em;
+}

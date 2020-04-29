@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import JoblyApi from './JoblyApi';
-import './JobList.css';
+import './List.css';
 
 // components
 import SearchBar from './SearchBar';
@@ -46,7 +46,7 @@ function JobList() {
   }
 
   return (
-    <div className="JobList">
+    <div className="List">
       <SearchBar search={searchJob} />
       { jobs.length ? renderJobs() : <p>Sorry, no results were found!</p> }
     </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './JobCard.css';
+import './Card.css';
 
 /** Displays a job's details and a button to apply for the job */
 
@@ -11,7 +11,7 @@ function JobCard({ id, title, salary, equity, applied }) {
   }
 
   return (
-    <div className="JobCard">
+    <div className="Card JobCard">
       <h3>{title}</h3>
       <p>Salary: {salary}</p>
       <p>Equity: {equity}</p>

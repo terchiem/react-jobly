@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import JoblyApi from './JoblyApi';
-import './CompanyPage.css';
+import './List.css';
 
 // components
 import JobCard from './JobCard';
@@ -38,7 +38,7 @@ function CompanyPage() {
   }
 
   const companyPage = currentCompany ? 
-    <div className="CompanyPage">
+    <div className="List">
       <h2>{currentCompany.name}</h2>
       <p>{currentCompany.description}</p>
       { renderCompanyJobs() }
