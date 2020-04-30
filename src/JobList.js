@@ -40,7 +40,7 @@ function JobList({ updateUserJobs }) {
 
   /** Creates a CompanyCard for each company object in state */
   function renderJobs() {
-    return jobs.map(j => {
+    return jobs.length ? (jobs.map(j => {
       // check if currentUser has applied to job
       const applied = currentUser.jobs.some(userJob => {
         if (userJob.id === j.id) {
@@ -59,17 +59,15 @@ function JobList({ updateUserJobs }) {
         applied={applied}
         updateUserJobs={updateUserJobs}
       />;
-    }); 
-  }
-
-  if (loading) {
-    return <LoadingSpinner />;
+    })) : (
+      <p>Sorry, no results were found!</p> 
+    ); 
   }
 
   return (
     <div className="List">
       <SearchBar search={searchJob} />
-      { jobs.length ? renderJobs() : <p>Sorry, no results were found!</p> }
+      { loading ? <LoadingSpinner /> : renderJobs() }
     </div>
   );
 }

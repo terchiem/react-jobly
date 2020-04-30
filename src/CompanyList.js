@@ -41,7 +41,7 @@ function CompanyList() {
 
   /** Creates a CompanyCard for each company object in state */
   function renderCompanies() {
-    return companies.map(c => (
+    return companies.length ? companies.map(c => (
       <CompanyCard
         key={c.handle}
         name={c.name}
@@ -49,17 +49,15 @@ function CompanyList() {
         description={c.description}
         logoUrl={c.logo_url}
       />
-    )); 
-  }
-
-  if (loading) {
-    return <LoadingSpinner />;
+    )) : (
+      <p>Sorry, no results were found!</p>
+    );
   }
 
   return (
     <div className="List">
       <SearchBar search={searchCompany} />
-      { companies.length ? renderCompanies() : <p>Sorry, no results were found!</p> }
+      { loading ? <LoadingSpinner /> : renderCompanies() }
     </div>
   );
 }
