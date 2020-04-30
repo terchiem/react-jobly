@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 /** 
  * Custom hook to store state in localStorage. Takes a key which will
@@ -9,17 +9,16 @@ function useLocalStorage(key) {
   const storedData = window.localStorage.getItem(key) || null;
   const [data, setData] = useState(storedData);
 
-  function updateData(value) {
-    setData(value);
-    window.localStorage.setItem(key, value);
-  }
+  useEffect(() => {
+    window.localStorage.setItem(key, data);
+  }, [data]);
 
   function removeData() {
     setData(null);
     window.localStorage.removeItem(key);
   }
 
-  return [data, updateData, removeData];
+  return [data, setData, removeData];
 }
 
 export default useLocalStorage;
