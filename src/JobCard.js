@@ -22,7 +22,6 @@ function JobCard({
       // create job object to update currentUser state with
       const newJob = { id, company_handle, title, state }
       updateUserJobs(newJob);
-      // TODO: display some success message
     } catch (err) {
       console.error(err);
     }

@@ -9,34 +9,47 @@ exports[`matches snapshot 1`] = `
       class="NavBar"
     >
       <a
-        class="NavBar-left"
         href="/"
+        id="NavBar-logo"
       >
         Jobly
       </a>
-      <a
-        href="/companies"
-      >
-        Companies
-      </a>
-      <a
-        href="/jobs"
-      >
-        Jobs
-      </a>
-      <a
-        href="/login"
-      >
-        Login
-      </a>
-      <a
-        href="/profile"
-      >
-        Profile
-      </a>
+      <ul>
+        <li>
+          <a
+            href="/login"
+          >
+            Login
+          </a>
+        </li>
+      </ul>
     </nav>
-    <div>
-      This is the home page!
+    <div
+      class="Home"
+    >
+      <h1>
+        Jobly
+      </h1>
+      <p>
+        <a
+          class="Home-login"
+          href="/login"
+        >
+          Login
+        </a>
+      </p>
+    </div>
+    <div
+      class="debug"
+    >
+      <p>
+        ***** THE CURRENT USER IS *****
+      </p>
+      <div>
+        <pre>
+          null
+        </pre>
+      </div>
     </div>
   </div>
 </DocumentFragment>

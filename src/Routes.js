@@ -25,6 +25,7 @@ function Routes({ setToken, removeToken, setEditedUser, updateUserJobs }) {
         <Auth setToken={setToken} removeToken={removeToken} /> 
       </Route>
 
+
       {/* Protected routes */}
       { token ? (
         <>
@@ -45,6 +46,8 @@ function Routes({ setToken, removeToken, setEditedUser, updateUserJobs }) {
           </Route>
         </>
       ) : null}
+      {/* End protected routes */}
+      
       
       { /** Page not found */ }
       <Redirect exact to='/' />

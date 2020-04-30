@@ -23,14 +23,14 @@ function Profile({ setEditedUser }) {
 
   // when currentUser data has loaded, set the formData values
   useEffect(() => {
-    setFormData((data) => ({
+    setFormData({
       password: "",
       first_name: currentUser.first_name || "",
       last_name: currentUser.last_name || "",
       email: currentUser.email || "",
       photo_url: currentUser.photo_url || "",
       errors: []
-    }));
+    });
   }, [currentUser]);
 
   /** Update state on input change */
