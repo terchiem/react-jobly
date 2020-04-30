@@ -12,7 +12,7 @@ import Profile from './Profile';
 
 /** All routes for the Jobly app */
 
-function Routes({ setToken, removeToken }) {
+function Routes({ setToken, removeToken, setEditedUser, updateUserJobs }) {
   const { token } = useContext(UserContext); 
 
   return (
@@ -33,15 +33,15 @@ function Routes({ setToken, removeToken }) {
           </Route>
           
           <Route exact path='/companies/:handle'> 
-            <CompanyPage />
+            <CompanyPage updateUserJobs={updateUserJobs} />
           </Route>
           
           <Route exact path='/jobs'> 
-            <JobList /> 
+            <JobList updateUserJobs={updateUserJobs} /> 
           </Route>
           
           <Route exact path='/profile'> 
-            <Profile /> 
+            <Profile setEditedUser={setEditedUser} /> 
           </Route>
         </>
       ) : null}

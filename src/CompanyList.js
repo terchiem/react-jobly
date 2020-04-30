@@ -5,6 +5,7 @@ import './List.css';
 // components
 import CompanyCard from './CompanyCard';
 import SearchBar from './SearchBar';
+import LoadingSpinner from './LoadingSpinner';
 
 /** 
  * Displays a list of all available companies. A user can filter specific
@@ -14,13 +15,16 @@ import SearchBar from './SearchBar';
 function CompanyList() {
 
   const [companies, setCompanies] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // fetch all companies from api on initial mount
   useEffect(() => {
     async function loadCompanies() {
       const fetchedCompanies = await JoblyApi.request('companies');
       setCompanies(fetchedCompanies.companies);
+      setLoading(false);
     }
+    setLoading(true);
     loadCompanies();
   }, []);
 
@@ -29,8 +33,10 @@ function CompanyList() {
 
   /** Search for companies through the api. Sets results to state company array */
   async function searchCompany(term) {
+    setLoading(true);
     const foundCompanies = await JoblyApi.request(`companies?search=${term}`)
     setCompanies(foundCompanies.companies);
+    setLoading(false);
   }
 
   /** Creates a CompanyCard for each company object in state */
@@ -44,6 +50,10 @@ function CompanyList() {
         logoUrl={c.logo_url}
       />
     )); 
+  }
+
+  if (loading) {
+    return <LoadingSpinner />;
   }
 
   return (

@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { TOKEN_STORAGE_KEY } from './config';
 import UserContext from './UserContext';
 import './NavBar.css';
 
@@ -28,7 +27,7 @@ function NavBar({ logOut }) {
 
   return (
     <nav className='NavBar'>
-      <Link to='/' className='NavBar-left'>Jobly</Link>
+      <Link to='/' id='NavBar-logo'>Jobly</Link>
 
       { navLinks }
     </nav>

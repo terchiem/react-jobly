@@ -15,13 +15,13 @@ function Auth({ setToken }) {
     <div className="Auth">
       <div className="Auth-toggle">
         <button 
-          className={showLoginForm ? "Auth-active" : ""} 
+          className={showLoginForm ? "Auth-active" : "Auth-button"} 
           onClick={() => toggleLoginForm(true)}
         >
           Login
         </button>
         <button 
-          className={showLoginForm ? "" : "Auth-active"} 
+          className={showLoginForm ? "Auth-button" : "Auth-active"} 
           onClick={() => toggleLoginForm(false)}
         >
           Sign up

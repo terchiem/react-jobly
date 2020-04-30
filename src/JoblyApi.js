@@ -61,6 +61,25 @@ class JoblyApi {
     const res = await this.request(`users/${username}`);
     return res.user;
   }
+
+  /** Edit a user */
+  static async editUser(username, formData) {
+    const optionalFormData = {
+      password: formData.password,
+      first_name: formData.first_name || undefined,
+      last_name: formData.last_name || undefined,
+      email: formData.email || undefined,
+      photo_url: formData.photo_url || undefined
+    }
+    const res = await this.request(`users/${username}`, optionalFormData, 'patch');
+    return res.user;
+  }
+
+  /** Create application between job and user */
+  static async applyForJob(jobId) {
+    const res = await this.request(`jobs/${jobId}/apply`, {}, 'post');
+    return res.message;
+  }
 }
 
 export default JoblyApi;

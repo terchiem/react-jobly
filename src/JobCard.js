@@ -1,13 +1,31 @@
 import React from 'react';
+import JoblyApi from './JoblyApi';
 import './Card.css';
 
 /** Displays a job's details and a button to apply for the job */
 
-function JobCard({ id, title, salary, equity, applied }) {
+function JobCard({ 
+  id, 
+  company_handle, 
+  title, 
+  salary, 
+  equity, 
+  applied, 
+  updateUserJobs 
+}) {
 
   /** Create an application for a user and a job */
-  function applyForJob() {
-    // TODO: use job id and current user name to make application
+  async function applyForJob() {
+    try {
+      const state = await JoblyApi.applyForJob(id);
+
+      // create job object to update currentUser state with
+      const newJob = { id, company_handle, title, state }
+      updateUserJobs(newJob);
+      // TODO: display some success message
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   return (

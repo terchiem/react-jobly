@@ -10,6 +10,7 @@ import './App.css';
 // components
 import NavBar from './NavBar';
 import Routes from './Routes';
+import LoadingSpinner from './LoadingSpinner';
 
 /** Top level component for Jobly App. */
 
@@ -17,27 +18,49 @@ function App() {
 
   const [token, setToken, removeToken] = useLocalStorage(TOKEN_STORAGE_KEY);
   const [currentUser, setCurrentUser] = useState(null);
-  
+  const [loading, setLoading] = useState(true);
 
   // Call api to get user data from the token username, and set in state
   useEffect(() => {
     async function fetchUser() {
-      const { username } = jwt.decode(token);
-      const user = await JoblyApi.getUser(username);
-      setCurrentUser(user);
+      try {
+        const { username } = jwt.decode(token);
+        const user = await JoblyApi.getUser(username);
+        setCurrentUser(user);  
+      } catch (err) {
+        setCurrentUser(null);
+      }
+      setLoading(false);
     }
-
-    if (token) { 
-      fetchUser()
-    } else {
-      setCurrentUser(null);
-    };
+    setLoading(true);
+    fetchUser()
   }, [token]);
 
 
   /** Logs out current user by removing the token from storage */
   function logOut() {
     removeToken();
+    setCurrentUser(null);
+  }
+
+  /** Updates the currentUser to match the edited user received from api */
+  function setEditedUser(editedUser) {
+    setCurrentUser((user) => ({
+      ...editedUser,
+      jobs: user.jobs
+    }));
+  }
+
+  /** Updates the currentUser's job list after applying for one */
+  function updateUserJobs(job) {
+    setCurrentUser(user => ({
+      ...user,
+      jobs: [...user.jobs, job]
+    }));
+  }
+
+  if (loading) {
+    return <LoadingSpinner />;
   }
 
   return (
@@ -45,12 +68,21 @@ function App() {
       <UserContext.Provider value={{ currentUser, token }}>
         <BrowserRouter>
           <NavBar logOut={logOut} />
-          <Routes setToken={setToken} removeToken={removeToken} />
+          <Routes 
+            setToken={setToken} 
+            removeToken={removeToken} 
+            setEditedUser={setEditedUser} 
+            updateUserJobs={updateUserJobs}
+          />
         </BrowserRouter>
       </UserContext.Provider>
 
       {/* DEBUG */}
-      {`THE CURRENT USER IS: ${JSON.stringify(currentUser)}`}
+      <div className="debug">
+        <p>***** THE CURRENT USER IS *****</p>
+        <div><pre>{JSON.stringify(currentUser, null, 2)}</pre></div>
+      </div>
+      {/* END DEBUG */}
     </div>
   );
 }
