@@ -9,11 +9,16 @@
 
 .NavBar a {
   text-decoration: none;
-  color: #2469ff;
+  color: #0ba57f;
 }
 
-.NavBar-left {
-  justify-self: flex-start;
+#NavBar-logo {
+  font-size: 1.3em;
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-weight: 900;
+  background-color: #11ce9f;
+  color: #000;
 }
 
 .NavBar .active {

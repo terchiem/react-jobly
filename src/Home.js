@@ -6,19 +6,18 @@ import './Home.css';
 /** Displays a simple greeting to the user. Show a Login link if logged out. */
 
 function Home() {
-  const { currentUser } = useContext(UserContext); // TEMP: switch to user when implemented
+  const { currentUser } = useContext(UserContext); 
 
   return (
     <div className="Home">
+      <h1>Jobly</h1>
       <p>
         { 
           currentUser ? 
           `Welcome back, ${currentUser.first_name || currentUser.username}!` : 
-          'Welcome to Jobly!'
+          <Link to="/login" className="Home-login">Login</Link>
         }
       </p>
-
-      { currentUser ? null : <Link to="/login" className="Home-login">Login</Link>}
     </div>
   );
 }

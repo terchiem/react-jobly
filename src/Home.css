@@ -3,15 +3,25 @@
   margin: 80px auto;
 }
 
-.Home p {
+.Home h1 {
+  margin: 0 auto;
+  width: 300px;
   font-size: 3em;
+  border-radius: 10px;
+  padding: 6px 10px;
+  border: 1px solid #0ba57f;
+}
+
+.Home p {
+  font-size: 1.5em;
 }
 
 .Home-login {
   display: block;
   width: 80px;
-  padding: 10px;
+  padding: 6px 10px;
   margin: 10px auto;
-  background-color: #2469ff;
+  background-color: #0ba57f;
+  border-radius: 6px;
   color: #fff;
 }

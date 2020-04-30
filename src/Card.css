@@ -15,16 +15,25 @@
   bottom: 0;
   right: 0;
   margin: 20px;
-  padding: 10px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background-color: #0ba57f;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 600;
 }
 
 .JobCard-apply:hover {
   cursor: pointer;
 }
 
+.JobCard-apply:disabled {
+  background-color: #92c0b4;
+}
+
 /* CompanyCard */
 .CompanyCard-link:hover .CompanyCard {
-  color: #2469ff;
+  color: #0ba57f;
 }
 
 .CompanyCard img {

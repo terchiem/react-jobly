@@ -1,0 +1,27 @@
+.LoadingSpinner-container {
+  margin: 100px;
+  background-color: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.LoadingSpinner {
+  border: 6px solid #fff;
+  border-top: 6px solid #0ba57f;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 0.6s cubic-bezier(.39,.66,.72,.78) infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+  

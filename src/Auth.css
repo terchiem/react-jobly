@@ -18,8 +18,13 @@
 .Auth-toggle button {
   padding: 6px 10px;
   font-size: 0.8em;
+  color: #fff;
+}
+
+.Auth-button {
+  background-color: #17c096;
 }
 
 .Auth-active {
-  background-color: #ccc;
+  background-color: #0a7e61;
 }

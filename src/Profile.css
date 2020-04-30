@@ -1,0 +1,14 @@
+.Profile {
+  width: 40vw;
+  margin: 30px auto;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.Profile h2,
+.Profile h3 {
+  margin: 0;
+}
