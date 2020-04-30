@@ -76,13 +76,6 @@ function App() {
           />
         </BrowserRouter>
       </UserContext.Provider>
-
-      {/* DEBUG */}
-      <div className="debug">
-        <p>***** THE CURRENT USER IS *****</p>
-        <div><pre>{JSON.stringify(currentUser, null, 2)}</pre></div>
-      </div>
-      {/* END DEBUG */}
     </div>
   );
 }
