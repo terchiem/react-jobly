@@ -12,7 +12,13 @@ import NavBar from './NavBar';
 import Routes from './Routes';
 import LoadingSpinner from './LoadingSpinner';
 
-/** Top level component for Jobly App. */
+/** Top level component for Jobly App. 
+ * 
+ * State:
+ *  token -> user session token stored in localStorage
+ *  currentUser -> current user object retrieved from api
+ *  loading -> to display loading spinner while fetching data from api
+*/
 
 function App() {
 

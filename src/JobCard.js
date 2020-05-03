@@ -2,7 +2,15 @@ import React from 'react';
 import JoblyApi from './JoblyApi';
 import './Card.css';
 
-/** Displays a job's details and a button to apply for the job */
+/** Displays a job's details and a button to apply for the job 
+ * 
+ * Props:
+ *  id -> id of job
+ *  company_handle -> handle of job's company
+ *  title, salary, equity -> info about job
+ *  applied -> whether or not current user has applied to job
+ *  updateUserJob -> function to update current user's job list
+*/
 
 function JobCard({ 
   id, 

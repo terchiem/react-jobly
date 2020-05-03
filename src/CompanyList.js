@@ -10,6 +10,10 @@ import LoadingSpinner from './LoadingSpinner';
 /** 
  * Displays a list of all available companies. A user can filter specific
  * companies with the SearchBar component.
+ * 
+ * State:
+ *  companies -> array of companies received from api
+ *  loading -> to display loading spinner while fetching companies
  */
 
 function CompanyList() {
@@ -28,8 +32,7 @@ function CompanyList() {
     loadCompanies();
   }, []);
 
-  // TODO: loading display
-    // chrome - simulate load time
+
 
   /** Search for companies through the api. Sets results to state company array */
   async function searchCompany(term) {

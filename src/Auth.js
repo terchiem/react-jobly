@@ -5,7 +5,14 @@ import './Auth.css';
 import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
 
-/** Displays a form to log in or sign up */
+/** Displays a form to log in or sign up 
+ * 
+ * Props:
+ *  setToken -> parent setter for token state
+ * 
+ * State:
+ *  showLoginForm -> toggle display between LoginForm and SignUpForm
+*/
 
 function Auth({ setToken }) {
 

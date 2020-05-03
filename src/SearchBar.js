@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import './SearchBar.css';
 
-/** Search bar component to search for a Company or Job */
+/** Search bar component to search for a Company or Job 
+ * 
+ * Props:
+ *  search -> search function from parent JobList/CompanyList component
+ * 
+ * State:
+ *  searchTerm -> state for text input, sent to search function
+*/
 
 function SearchBar({ search }) {  
 

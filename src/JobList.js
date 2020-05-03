@@ -9,8 +9,17 @@ import JobCard from './JobCard';
 import LoadingSpinner from './LoadingSpinner';
 
 /** 
- * Displays a list of JobCard components from the jobs 
- * array kept in state. 
+ * Displays a list of JobCard components from the jobs array kept in state. 
+ * 
+ * Props:
+ *  updateUserJobs -> function to update current user's job list
+ * 
+ * Context:
+ *  currentUser -> universal current user object
+ * 
+ * State:
+ *  jobs -> array of jobs fetched from api
+ *  loading -> toggle display of loading spinner while fetching data
  * */
 
 function JobList({ updateUserJobs }) {

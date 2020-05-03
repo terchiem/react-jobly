@@ -3,7 +3,14 @@ import { useHistory } from 'react-router-dom';
 import JoblyApi from './JoblyApi';
 import './Form.css';
 
-/** Form component for a user to sign in. */
+/** Form component for a user to sign in. 
+ * 
+ * Props:
+ *  setToken -> App component state setter for token
+ * 
+ * State:
+ *  formData -> state for each input on the form
+*/
 
 function SignUpForm({ setToken }) {
   const history = useHistory();

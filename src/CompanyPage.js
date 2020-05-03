@@ -7,7 +7,17 @@ import './List.css';
 // components
 import JobCard from './JobCard';
 
-/** Displays details about a company and all of its jobs */
+/** Displays details about a company and all of its jobs 
+ * 
+ * Props:
+ *  updateUserJobs -> function used to apply for a job
+ * 
+ * Context:
+ *  currentUser -> universal current user object
+ * 
+ * State:
+ *  currentCompany -> company fetched by api with current url params
+*/
 
 function CompanyPage({ updateUserJobs }) {
   const { currentUser } = useContext(UserContext);

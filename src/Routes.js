@@ -10,7 +10,17 @@ import JobList from './JobList';
 import Auth from './Auth';
 import Profile from './Profile';
 
-/** All routes for the Jobly app */
+/** All routes for the Jobly app 
+ * 
+ * Props:
+ *  setToken -> App function, used in Auth component
+ *  removeToken -> App function, used in Auth component
+ *  setEditedUser -> App function, used in Profile component
+ *  updateUserJobs -> App function, used in CompanyPage/JobList component
+ * 
+ * Context:
+ *  token -> stored user session token from localStorage
+*/
 
 function Routes({ setToken, removeToken, setEditedUser, updateUserJobs }) {
   const { token } = useContext(UserContext); 

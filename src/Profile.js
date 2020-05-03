@@ -5,7 +5,17 @@ import './Profile.css';
 
 import LoadingSpinner from './LoadingSpinner';
 
-/** Displays a user's details as a form that allows the user to edit */
+/** Displays a user's details as a form that allows the user to edit 
+ * 
+ * Props:
+ *  setEditedUser -> function from App to set newly edited user as currentUser
+ * 
+ * Context:
+ *  currentUser -> universal current user object
+ * 
+ * State:
+ *  formData -> state for form inputs
+*/
 
 function Profile({ setEditedUser }) {
   const { currentUser } = useContext(UserContext);

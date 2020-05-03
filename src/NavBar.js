@@ -4,8 +4,13 @@ import UserContext from './UserContext';
 import './NavBar.css';
 
 /** 
- * Navigation component for the Jobly app. 
- * Changes depending if user is logged in. 
+ * Navigation component for the Jobly app. Changes depending if user is logged in. 
+ * 
+ * Props:
+ *  logOut -> function from App to log a user out
+ * 
+ * Context:
+ *  token -> stored user session token from localStorage
  * */
 
 function NavBar({ logOut }) {
