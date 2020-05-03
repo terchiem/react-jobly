@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import JoblyApi from './JoblyApi';
 import UserContext from './UserContext';
 import './List.css';
@@ -26,18 +26,6 @@ function JobList({ updateUserJobs }) {
   const { currentUser } = useContext(UserContext);
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  // fetch all jobs from api on initial mount
-  useEffect(() => {
-    async function loadJobs() {
-      const fetchedJobs = await JoblyApi.request('jobs');
-      setJobs(fetchedJobs.jobs);
-      setLoading(false);
-    }
-    setLoading(true);
-    loadJobs();
-  }, []);
-
 
   /** Search for jobs through the api. Sets results to state company array */
   async function searchJob(term) {

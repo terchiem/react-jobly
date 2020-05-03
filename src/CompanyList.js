@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import JoblyApi from './JoblyApi';
 import './List.css';
 
@@ -20,19 +20,6 @@ function CompanyList() {
 
   const [companies, setCompanies] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  // fetch all companies from api on initial mount
-  useEffect(() => {
-    async function loadCompanies() {
-      const fetchedCompanies = await JoblyApi.request('companies');
-      setCompanies(fetchedCompanies.companies);
-      setLoading(false);
-    }
-    setLoading(true);
-    loadCompanies();
-  }, []);
-
-
 
   /** Search for companies through the api. Sets results to state company array */
   async function searchCompany(term) {

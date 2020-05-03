@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import _ from 'lodash';
 import './SearchBar.css';
 
 /** Search bar component to search for a Company or Job 
@@ -8,11 +9,17 @@ import './SearchBar.css';
  * 
  * State:
  *  searchTerm -> state for text input, sent to search function
+ * 
+ * Ref:
+ *  debouncedSearch -> for use of live searches
 */
 
 function SearchBar({ search }) {  
 
   const [searchTerm, setSearchTerm] = useState('');
+  const debouncedSearch = useRef(
+    _.debounce(term => search(term), 500)
+  ).current;
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -20,10 +27,15 @@ function SearchBar({ search }) {
     setSearchTerm('');
   }
 
-  // TODO: debounce the search
+  /** Update input search term */
   function handleChange(evt) {
     setSearchTerm(evt.target.value);
   }
+
+  // call debounced search on searchTerm update
+  useEffect(function callSearch() {
+    debouncedSearch(searchTerm);
+  }, [searchTerm, debouncedSearch]);
 
   return (
     <form className="SearchBar" onSubmit={handleSubmit}>
@@ -33,7 +45,6 @@ function SearchBar({ search }) {
         value={searchTerm}
         onChange={handleChange}
       />
-      <button className="SearchBar-button">Search</button>
     </form>
   )
 }
