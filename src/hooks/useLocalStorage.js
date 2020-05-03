@@ -5,20 +5,19 @@ import { useState, useEffect } from 'react';
  * be used to access localStorage.
  */
 
-function useLocalStorage(key) {
-  const storedData = window.localStorage.getItem(key) || null;
-  const [data, setData] = useState(storedData);
+function useLocalStorage(key, initialValue) {
+  const currentValue = localStorage.getItem(key) || initialValue;
+  const [data, setData] = useState(currentValue);
 
   useEffect(() => {
-    window.localStorage.setItem(key, data);
-  }, [data]);
+    if (!data) {
+      localStorage.removeItem(key);
+    } else {
+      localStorage.setItem(key, data);
+    }
+  }, [data, key]);
 
-  function removeData() {
-    setData(null);
-    window.localStorage.removeItem(key);
-  }
-
-  return [data, setData, removeData];
+  return [data, setData];
 }
 
 export default useLocalStorage;

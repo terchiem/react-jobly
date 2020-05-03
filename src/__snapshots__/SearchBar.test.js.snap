@@ -10,11 +10,6 @@ exports[`matches snapshot 1`] = `
       placeholder="Search term..."
       value=""
     />
-    <button
-      class="SearchBar-button"
-    >
-      Search
-    </button>
   </form>
 </DocumentFragment>
 `;

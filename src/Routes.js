@@ -14,7 +14,6 @@ import Profile from './Profile';
  * 
  * Props:
  *  setToken -> App function, used in Auth component
- *  removeToken -> App function, used in Auth component
  *  setEditedUser -> App function, used in Profile component
  *  updateUserJobs -> App function, used in CompanyPage/JobList component
  * 
@@ -22,7 +21,7 @@ import Profile from './Profile';
  *  token -> stored user session token from localStorage
 */
 
-function Routes({ setToken, removeToken, setEditedUser, updateUserJobs }) {
+function Routes({ setToken, setEditedUser, updateUserJobs }) {
   const { token } = useContext(UserContext); 
 
   return (
@@ -32,7 +31,7 @@ function Routes({ setToken, removeToken, setEditedUser, updateUserJobs }) {
       </Route>
 
       <Route exact path='/login'> 
-        <Auth setToken={setToken} removeToken={removeToken} /> 
+        <Auth setToken={setToken} /> 
       </Route>
 
 

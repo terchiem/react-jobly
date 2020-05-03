@@ -39,18 +39,6 @@ exports[`matches snapshot 1`] = `
         </a>
       </p>
     </div>
-    <div
-      class="debug"
-    >
-      <p>
-        ***** THE CURRENT USER IS *****
-      </p>
-      <div>
-        <pre>
-          null
-        </pre>
-      </div>
-    </div>
   </div>
 </DocumentFragment>
 `;

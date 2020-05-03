@@ -22,7 +22,7 @@ import LoadingSpinner from './LoadingSpinner';
 
 function App() {
 
-  const [token, setToken, removeToken] = useLocalStorage(TOKEN_STORAGE_KEY);
+  const [token, setToken] = useLocalStorage(TOKEN_STORAGE_KEY);
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -45,7 +45,7 @@ function App() {
 
   /** Logs out current user by removing the token from storage */
   function logOut() {
-    removeToken();
+    setToken(null);
     setCurrentUser(null);
   }
 
@@ -76,7 +76,6 @@ function App() {
           <NavBar logOut={logOut} />
           <Routes 
             setToken={setToken} 
-            removeToken={removeToken} 
             setEditedUser={setEditedUser} 
             updateUserJobs={updateUserJobs}
           />
