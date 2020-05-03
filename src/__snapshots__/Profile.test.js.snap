@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Profile"
+  >
+    <form
+      class="Form"
+    >
+      <h2>
+        Edit Profile
+      </h2>
+      <div
+        class="Form-group"
+      >
+        <h3>
+          Username
+        </h3>
+        <p>
+          test
+        </p>
+      </div>
+      <div
+        class="Form-group"
+      >
+        <label
+          class="Form-label"
+          for="first_name"
+        >
+          First name
+        </label>
+        <input
+          class="Form-input"
+          id="first_name"
+          name="first_name"
+          value="test"
+        />
+      </div>
+      <div
+        class="Form-group"
+      >
+        <label
+          class="Form-label"
+          for="last_name"
+        >
+          Last name
+        </label>
+        <input
+          class="Form-input"
+          id="last_name"
+          name="last_name"
+          value="test"
+        />
+      </div>
+      <div
+        class="Form-group"
+      >
+        <label
+          class="Form-label"
+          for="email"
+        >
+          Email
+        </label>
+        <input
+          class="Form-input"
+          id="email"
+          name="email"
+          type="email"
+          value="test@email.com"
+        />
+      </div>
+      <div
+        class="Form-group"
+      >
+        <label
+          class="Form-label"
+          for="photo_url"
+        >
+          Photo URL
+        </label>
+        <input
+          class="Form-input"
+          id="photo_url"
+          name="photo_url"
+          value=""
+        />
+      </div>
+      <div
+        class="Form-group"
+      >
+        <label
+          class="Form-label"
+          for="password"
+        >
+          Confirm Password
+        </label>
+        <input
+          class="Form-input"
+          id="password"
+          name="password"
+          type="password"
+          value=""
+        />
+      </div>
+      <button
+        class="Form-submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;

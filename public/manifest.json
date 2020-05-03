@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Jobly App",
+  "name": "React front end project for Rithm School",
   "icons": [
     {
       "src": "favicon.ico",
