@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import UserContext from './UserContext';
 
 // components
 import Home from './Home';
@@ -9,6 +8,7 @@ import CompanyPage from './CompanyPage';
 import JobList from './JobList';
 import Auth from './Auth';
 import Profile from './Profile';
+import PrivateRoute from './PrivateRoute';
 
 /** All routes for the Jobly app 
  * 
@@ -16,13 +16,9 @@ import Profile from './Profile';
  *  setToken -> App function, used in Auth component
  *  setEditedUser -> App function, used in Profile component
  *  updateUserJobs -> App function, used in CompanyPage/JobList component
- * 
- * Context:
- *  token -> stored user session token from localStorage
 */
 
 function Routes({ setToken, setEditedUser, updateUserJobs }) {
-  const { token } = useContext(UserContext); 
 
   return (
     <Switch>
@@ -34,30 +30,22 @@ function Routes({ setToken, setEditedUser, updateUserJobs }) {
         <Auth setToken={setToken} /> 
       </Route>
 
+      <PrivateRoute exact={true} path='/companies'>
+        <CompanyList />
+      </PrivateRoute>
+      
+      <PrivateRoute exact={true} path='/companies/:handle'> 
+        <CompanyPage updateUserJobs={updateUserJobs} />
+      </PrivateRoute>
+      
+      <PrivateRoute exact={true} path='/jobs'> 
+        <JobList updateUserJobs={updateUserJobs} /> 
+      </PrivateRoute>
+      
+      <PrivateRoute exact={true} path='/profile'> 
+        <Profile setEditedUser={setEditedUser} /> 
+      </PrivateRoute>
 
-      {/* Protected routes */}
-      { token ? (
-        <>
-          <Route exact path='/companies'>
-            <CompanyList />
-          </Route>
-          
-          <Route exact path='/companies/:handle'> 
-            <CompanyPage updateUserJobs={updateUserJobs} />
-          </Route>
-          
-          <Route exact path='/jobs'> 
-            <JobList updateUserJobs={updateUserJobs} /> 
-          </Route>
-          
-          <Route exact path='/profile'> 
-            <Profile setEditedUser={setEditedUser} /> 
-          </Route>
-        </>
-      ) : null}
-      {/* End protected routes */}
-      
-      
       { /** Page not found */ }
       <Redirect exact to='/' />
     </Switch>
