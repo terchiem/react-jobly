@@ -1,3 +1,6 @@
-# Jobly
+# Jobly (Front End)
 
-A job searching app that lets users browse and search for companies or jobs. It utilizes a React Frontend and an Express Backend, connecting to a Postgres database.
+The Front End component to a Full Stack application for job searching. Users can log in to browse and search for companies or jobs. It utilizes a React client and an Express server connected to a Postgres DB.
+
+[Live Demo](http://r15-jobly-frontend.herokuapp.com/)
+[Back End Repo](https://github.com/terchiem/express-jobly)
